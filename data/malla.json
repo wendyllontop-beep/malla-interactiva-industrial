@@ -1,72 +1,111 @@
 {
   "I": [
-    { "id": "2459", "nombre": "Introducción a la Vida Universitaria", "req": [] },
-    { "id": "2464", "nombre": "Metodología del Estudio", "req": [] },
     { "id": "2454", "nombre": "Comunicación", "req": [] },
+    { "id": "2457", "nombre": "Química I", "req": [] },
+    { "id": "2459", "nombre": "Introducción a la Vida Universitaria", "req": [] },
     { "id": "2460", "nombre": "Matemática I", "req": [] },
-    { "id": "2457", "nombre": "Química I", "req": [] }
+    { "id": "2464", "nombre": "Metodología del Estudio", "req": [] },
+    { "id": "2466", "nombre": "Dibujo Técnico y Geometría Descriptiva", "req": [] }
   ],
+
   "II": [
-    { "id": "2486", "nombre": "Introducción a la Filosofía", "req": [] },
-    { "id": "2484", "nombre": "Fundamentos de Informática", "req": [] },
     { "id": "2469", "nombre": "Matemática II", "req": ["2460"] },
+    { "id": "2479", "nombre": "Cálculo I", "req": ["2460"] },
     { "id": "2482", "nombre": "Física I", "req": ["2460"] },
+    { "id": "2484", "nombre": "Fundamentos de Informática", "req": [] },
+    { "id": "2486", "nombre": "Introducción a la Filosofía", "req": [] },
     { "id": "2488", "nombre": "Química II", "req": ["2457"] }
   ],
+
   "III": [
-    { "id": "2466", "nombre": "Dibujo Técnico y Geometría Descriptiva", "req": [] },
-    { "id": "2479", "nombre": "Cálculo I", "req": ["2460"] },
+    { "id": "2493", "nombre": "Economía General", "req": [] },
+    { "id": "2495", "nombre": "Antropología Filosófica y Teológica", "req": ["2486"] },
+    { "id": "2496", "nombre": "Cálculo II", "req": ["2469", "2479"] },
     { "id": "2497", "nombre": "Metodología de la Investigación Científica", "req": ["2464"] },
     { "id": "2499", "nombre": "Física II", "req": ["2482"] },
-    { "id": "2501", "nombre": "Lógica y Gnoseología", "req": ["2486"] }
-  ],
-  "IV": [
-    { "id": "2468", "nombre": "Dibujo Técnico Avanzado", "req": ["2466"] },
-    { "id": "2496", "nombre": "Cálculo II", "req": ["2469", "2479"] },
-    { "id": "2495", "nombre": "Antropología Filosófica y Teológica", "req": ["2486"] },
-    { "id": "2493", "nombre": "Economía General", "req": [] },
+    { "id": "2501", "nombre": "Lógica y Gnoseología", "req": ["2486"] },
     { "id": "2504", "nombre": "Organización y Métodos", "req": ["2484"] }
   ],
-  "V": [
-    { "id": "2478", "nombre": "Fundamentos de Marketing", "req": [] },
-    { "id": "2462", "nombre": "Estadística I", "req": [] },
-    { "id": "2472", "nombre": "Mecánica para Ingenieros", "req": ["2482"] },
+
+  "IV": [
+    { "id": "2453", "nombre": "Sistemas y Tecnologías de la Información", "req": ["2484"] },
     { "id": "2456", "nombre": "Termodinámica", "req": ["2488", "2499"] },
-    { "id": "2453", "nombre": "Sistemas y Tecnologías de la Información", "req": ["2484"] }
-  ],
-  "VI": [
-    { "id": "2470", "nombre": "Historia de la Cultura Occidental I", "req": [] },
-    { "id": "2477", "nombre": "Estadística II", "req": ["2462"] },
     { "id": "2458", "nombre": "Ingeniería Económica", "req": ["2479"] },
-    { "id": "2498", "nombre": "Ingeniería de los Materiales", "req": ["2472", "2488"] },
-    { "id": "2505", "nombre": "Gestión del Desarrollo Humano", "req": ["2504"] }
-  ],
-  "VII": [
-    { "id": "2475", "nombre": "Ingeniería de Métodos", "req": ["2504"] },
-    { "id": "2473", "nombre": "Investigación de Operaciones I", "req": ["2496"] },
+    { "id": "2462", "nombre": "Estadística I", "req": [] },
     { "id": "2465", "nombre": "Teología I", "req": ["2495"] },
-    { "id": "2455", "nombre": "Electricidad Industrial", "req": ["2468", "2499"] },
-    { "id": "2485", "nombre": "Costos y Presupuestos", "req": ["2458"] }
+    { "id": "2468", "nombre": "Dibujo Técnico Avanzado", "req": ["2466"] }
   ],
-  "VIII": [
-    { "id": "2476", "nombre": "Análisis de la Realidad Peruana", "req": ["2492"] },
+
+  "V": [
+    { "id": "2470", "nombre": "Historia de la Cultura Occidental I", "req": [] },
+    { "id": "2472", "nombre": "Mecánica para Ingenieros", "req": ["2482"] },
+    { "id": "2473", "nombre": "Investigación de Operaciones I", "req": ["2496"] },
+    { "id": "2475", "nombre": "Ingeniería de Métodos", "req": ["2504"] },
+    { "id": "2477", "nombre": "Estadística II", "req": ["2462"] },
+    { "id": "2478", "nombre": "Fundamentos de Marketing", "req": [] }
+  ],
+
+  "VI": [
     { "id": "2481", "nombre": "Procesos Industriales", "req": ["2456"] },
+    { "id": "2485", "nombre": "Costos y Presupuestos", "req": ["2458"] },
     { "id": "2490", "nombre": "Investigación de Mercados", "req": ["2477"] },
+    { "id": "2492", "nombre": "Historia de la Cultura Occidental II", "req": ["2470"] },
     { "id": "2494", "nombre": "Investigación de Operaciones II", "req": ["2473"] },
-    { "id": "2471", "nombre": "Logística I", "req": ["2494"] }
+    { "id": "2498", "nombre": "Ingeniería de los Materiales", "req": ["2472", "2488"] },
+    { "id": "2503", "nombre": "Artes Plásticas", "req": [] },
+    { "id": "2506", "nombre": "Apreciación Literaria", "req": [] },
+    { "id": "2508", "nombre": "Apreciación Musical", "req": [] },
+    { "id": "2509", "nombre": "Teatro", "req": [] },
+    { "id": "2511", "nombre": "Persona, Matrimonio y Familia", "req": [] }
   ],
-  "IX": [
-    { "id": "2483", "nombre": "Logística II", "req": ["2471"] },
-    { "id": "2487", "nombre": "Simulación de Sistemas", "req": ["2494", "2544"] },
-    { "id": "2489", "nombre": "Gestión del Medio Ambiente", "req": ["2544"] },
-    { "id": "2474", "nombre": "Seguridad y Salud en el Trabajo", "req": [] },
-    { "id": "2544", "nombre": "Modelamiento de Procesos", "req": [] }
-  ],
-  "X": [
-    { "id": "2545", "nombre": "Diseño de Planta", "req": [] },
+
+  "VII": [
+    { "id": "2455", "nombre": "Electricidad Industrial", "req": ["2468", "2499"] },
     { "id": "2461", "nombre": "Control Integral de la Calidad", "req": ["2477", "2481"] },
     { "id": "2463", "nombre": "Ingeniería del Producto", "req": ["2478", "2490", "2498"] },
     { "id": "2467", "nombre": "Moral", "req": ["2465", "2501"] },
-    { "id": "2511", "nombre": "Persona, Matrimonio y Familia", "req": [] }
+    { "id": "2471", "nombre": "Logística I", "req": ["2494"] },
+    { "id": "2474", "nombre": "Seguridad y Salud en el Trabajo", "req": [] },
+    { "id": "2544", "nombre": "Modelamiento de Procesos", "req": [] }
+  ],
+
+  "VIII": [
+    { "id": "2476", "nombre": "Análisis de la Realidad Peruana", "req": ["2492"] },
+    { "id": "2480", "nombre": "Sistema de Mejora de Procesos", "req": ["2461"] },
+    { "id": "2483", "nombre": "Logística II", "req": ["2471"] },
+    { "id": "2487", "nombre": "Simulación de Sistemas", "req": ["2494", "2544"] },
+    { "id": "2489", "nombre": "Gestión del Medio Ambiente", "req": ["2544"] },
+    { "id": "2491", "nombre": "Inglés Técnico", "req": ["2497"] },
+    { "id": "2500", "nombre": "Innovación y Emprendimiento", "req": ["2463"] },
+    { "id": "2502", "nombre": "Ergonomía y Antropometría", "req": ["2475"] },
+    { "id": "2545", "nombre": "Diseño de Planta", "req": [] }
+  ],
+
+  "IX": [
+    { "id": "2505", "nombre": "Gestión del Desarrollo Humano", "req": ["2504"] },
+    { "id": "2507", "nombre": "Enseñanza Social de la Iglesia", "req": ["2467", "2476"] },
+    { "id": "2510", "nombre": "Automatización Industrial", "req": ["2455", "2487"] },
+    { "id": "2512", "nombre": "Dirección Financiera", "req": ["2485"] },
+    { "id": "2513", "nombre": "Planeamiento y Control de Operaciones", "req": ["2483", "2485"] },
+    { "id": "2514", "nombre": "Taller de Investigación I", "req": ["2491"] },
+    { "id": "2515", "nombre": "Gestión de Operaciones en Servicios", "req": [] }
+  ],
+
+  "X": [
+    { "id": "2516", "nombre": "Dirección Estratégica", "req": [] },
+    { "id": "2517", "nombre": "Ética Profesional", "req": ["2507"] },
+    { "id": "2518", "nombre": "Gestión de la Calidad de Productos y Procesos", "req": ["2474", "2489"] },
+    { "id": "2519", "nombre": "Formulación y Evaluación de Proyectos", "req": ["2463", "2513", "2545"] },
+    { "id": "2520", "nombre": "Taller de Investigación II", "req": ["2514"] },
+    { "id": "2521", "nombre": "Legislación Laboral y Empresarial", "req": ["2505"] },
+    { "id": "2522", "nombre": "Gestión de Mantenimiento", "req": ["2510"] },
+    { "id": "2523", "nombre": "Negocios Internacionales", "req": ["2483"] },
+    { "id": "2524", "nombre": "Gestión de la Innovación", "req": ["2500"] },
+    { "id": "2525", "nombre": "Gestión de Proyectos con PMBOK", "req": ["2513"] },
+    { "id": "2526", "nombre": "Lean Manufacturing", "req": ["2480"] },
+    { "id": "2527", "nombre": "Inteligencia de Negocios", "req": ["2453"] },
+    { "id": "2528", "nombre": "Comportamiento Organizacional", "req": ["2505"] },
+    { "id": "2529", "nombre": "Gerencia", "req": ["2512"] },
+    { "id": "2530", "nombre": "Supply Chain Management", "req": ["2483"] }
   ]
 }
