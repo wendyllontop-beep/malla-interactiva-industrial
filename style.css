@@ -69,3 +69,53 @@ h1 {
 #lista-plan li {
   font-size: 14px;
 }
+/* ====== ESTADOS DE CURSOS ====== */
+
+/* Bloqueado - BEIGE */
+.curso.bloqueado {
+  background-color: #f5f1e6;
+  border: 2px solid #d6cfc2;
+  color: #7a6f5b;
+  cursor: not-allowed;
+}
+
+/* Disponible */
+.curso.disponible {
+  background-color: #ffffff;
+  border: 2px solid #cfcfcf;
+}
+
+/* Aprobado - VINO */
+.curso.aprobado {
+  background-color: #7b1e3a;
+  border: 2px solid #5c162c;
+  color: #ffffff;
+}
+
+/* Electivo disponible */
+.curso.electivo.disponible {
+  background-color: #f5f1e6;
+  border: 2px dashed #7b1e3a;
+}
+
+/* ====== PLANIFICADOR ====== */
+
+#lista-plan li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+/* Botón eliminar */
+.btn-eliminar {
+  color: #dc2626;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.btn-eliminar:hover {
+  color: #991b1b;
+}
