@@ -52,11 +52,10 @@
     { "id": "2492", "nombre": "Historia de la Cultura Occidental II", "req": ["2470"] },
     { "id": "2494", "nombre": "Investigación de Operaciones II", "req": ["2473"] },
     { "id": "2498", "nombre": "Ingeniería de los Materiales", "req": ["2472", "2488"] },
-    { "id": "2503", "nombre": "Artes Plásticas", "req": [] },
-    { "id": "2506", "nombre": "Apreciación Literaria", "req": [] },
-    { "id": "2508", "nombre": "Apreciación Musical", "req": [] },
-    { "id": "2509", "nombre": "Teatro", "req": [] },
-    { "id": "2511", "nombre": "Persona, Matrimonio y Familia", "req": [] }
+    { "id": "2503", "nombre": "Artes Plásticas", "req": [], "electivo": true },
+    { "id": "2506", "nombre": "Apreciación Literaria", "req": [], "electivo": true },
+    { "id": "2508", "nombre": "Apreciación Musical", "req": [], "electivo": true },
+    { "id": "2509", "nombre": "Teatro", "req": [], "electivo": true }
   ],
 
   "VII": [
@@ -99,13 +98,13 @@
     { "id": "2520", "nombre": "Taller de Investigación II", "req": ["2514"] },
     { "id": "2521", "nombre": "Legislación Laboral y Empresarial", "req": ["2505"] },
     { "id": "2522", "nombre": "Gestión de Mantenimiento", "req": ["2510"] },
-    { "id": "2523", "nombre": "Negocios Internacionales", "req": ["2483"] },
-    { "id": "2524", "nombre": "Gestión de la Innovación", "req": ["2500"] },
-    { "id": "2525", "nombre": "Gestión de Proyectos con PMBOK", "req": ["2513"] },
-    { "id": "2526", "nombre": "Lean Manufacturing", "req": ["2480"] },
-    { "id": "2527", "nombre": "Inteligencia de Negocios", "req": ["2453"] },
-    { "id": "2528", "nombre": "Comportamiento Organizacional", "req": ["2505"] },
-    { "id": "2529", "nombre": "Gerencia", "req": ["2512"] },
-    { "id": "2530", "nombre": "Supply Chain Management", "req": ["2483"] }
+    { "id": "2523", "nombre": "Negocios Internacionales", "req": ["2483"], "electivo": true },
+    { "id": "2524", "nombre": "Gestión de la Innovación", "req": ["2500"], "electivo": true },
+    { "id": "2525", "nombre": "Gestión de Proyectos con PMBOK", "req": ["2513"], "electivo": true },
+    { "id": "2526", "nombre": "Lean Manufacturing", "req": ["2480"], "electivo": true },
+    { "id": "2527", "nombre": "Inteligencia de Negocios", "req": ["2453"], "electivo": true },
+    { "id": "2528", "nombre": "Comportamiento Organizacional", "req": ["2505"], "electivo": true },
+    { "id": "2529", "nombre": "Gerencia", "req": ["2512"], "electivo": true },
+    { "id": "2530", "nombre": "Supply Chain Management", "req": ["2483"], "electivo": true }
   ]
 }
