@@ -1,4 +1,4 @@
-/* ====== GENERAL ====== */
+/* ===== GENERAL ===== */
 body {
   font-family: Arial, sans-serif;
   background: #f5f5f5;
@@ -9,7 +9,7 @@ h1 {
   text-align: center;
 }
 
-/* ====== SEMESTRES ====== */
+/* ===== SEMESTRES ===== */
 .semestre {
   margin-bottom: 30px;
 }
@@ -21,7 +21,7 @@ h1 {
   border-radius: 6px;
 }
 
-/* ====== CURSOS ====== */
+/* ===== CURSOS ===== */
 .cursos {
   display: flex;
   flex-wrap: wrap;
@@ -37,9 +37,9 @@ h1 {
   user-select: none;
 }
 
-/* ====== ESTADOS ====== */
+/* ===== ESTADOS ===== */
 
-/* Bloqueado - BEIGE */
+/* Bloqueado – BEIGE */
 .curso.bloqueado {
   background-color: #f5f1e6;
   border-color: #d6cfc2;
@@ -52,7 +52,7 @@ h1 {
   background-color: #ffffff;
 }
 
-/* Aprobado - VINO */
+/* Aprobado – VINO */
 .curso.aprobado {
   background-color: #7b1e3a;
   border-color: #5c162c;
@@ -65,7 +65,7 @@ h1 {
   border: 2px dashed #7b1e3a;
 }
 
-/* ====== PLANIFICADOR ====== */
+/* ===== PLANIFICADOR ===== */
 #planificador {
   position: fixed;
   right: 20px;
@@ -75,12 +75,7 @@ h1 {
   border: 2px solid #7b1e3a;
   border-radius: 10px;
   padding: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-#planificador h3 {
-  margin-top: 0;
-  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 #lista-plan {
