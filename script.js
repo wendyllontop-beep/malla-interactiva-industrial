@@ -1,5 +1,7 @@
 let cursosAprobados = new Set();
 let cursosPlanificados = [];
+let electivosElegidosPorSemestre = {}; // { "X": "cursoID" }
+
 const CREDITOS_MAX = 22;
 
 fetch("./data/malla.json")
@@ -14,6 +16,7 @@ function renderMalla(malla) {
   Object.keys(malla).forEach(sem => {
     const semDiv = document.createElement("div");
     semDiv.className = "semestre";
+    semDiv.dataset.semestre = sem;
 
     const titulo = document.createElement("h2");
     titulo.textContent = `Semestre ${sem}`;
@@ -26,27 +29,42 @@ function renderMalla(malla) {
       const div = document.createElement("div");
       div.classList.add("curso");
       div.dataset.id = curso.id;
+      div.dataset.semestre = sem;
       div.textContent = curso.nombre;
 
       if (curso.electivo) div.classList.add("electivo");
 
-      actualizarEstadoCurso(curso, div);
+      actualizarEstadoCurso(curso, div, sem);
 
-      // Click → aprobar / desaprobar
+      // CLICK → aprobar / desaprobar
       div.addEventListener("click", () => {
-        if (div.classList.contains("bloqueado")) return;
+        if (div.classList.contains("bloqueado") || div.classList.contains("descartado")) return;
 
-        cursosAprobados.has(curso.id)
-          ? cursosAprobados.delete(curso.id)
-          : cursosAprobados.add(curso.id);
+        const yaAprobado = cursosAprobados.has(curso.id);
+
+        if (yaAprobado) {
+          cursosAprobados.delete(curso.id);
+
+          // liberar electivos del semestre
+          if (curso.electivo) {
+            delete electivosElegidosPorSemestre[sem];
+          }
+        } else {
+          cursosAprobados.add(curso.id);
+
+          // si es electivo → descartar los demás del semestre
+          if (curso.electivo) {
+            electivosElegidosPorSemestre[sem] = curso.id;
+          }
+        }
 
         document.querySelectorAll(".curso").forEach(c => {
           const data = buscarCurso(malla, c.dataset.id);
-          if (data) actualizarEstadoCurso(data, c);
+          actualizarEstadoCurso(data, c, c.dataset.semestre);
         });
       });
 
-      // Doble click → planificador
+      // DOBLE CLICK → planificador
       div.addEventListener("dblclick", () => {
         if (div.classList.contains("disponible")) agregarCurso(curso);
       });
@@ -59,8 +77,18 @@ function renderMalla(malla) {
   });
 }
 
-function actualizarEstadoCurso(curso, div) {
-  div.classList.remove("bloqueado", "disponible", "aprobado");
+function actualizarEstadoCurso(curso, div, semestre) {
+  div.classList.remove("bloqueado", "disponible", "aprobado", "descartado");
+
+  // electivo descartado
+  if (
+    curso.electivo &&
+    electivosElegidosPorSemestre[semestre] &&
+    electivosElegidosPorSemestre[semestre] !== curso.id
+  ) {
+    div.classList.add("descartado");
+    return;
+  }
 
   const cumpleReq = curso.req.every(r => cursosAprobados.has(r));
 
