@@ -103,3 +103,11 @@ h1 {
 .btn-eliminar:hover {
   color: #991b1b;
 }
+/* Electivo descartado */
+.curso.descartado {
+  background-color: #eee;
+  border: 2px solid #bbb;
+  color: #888;
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
