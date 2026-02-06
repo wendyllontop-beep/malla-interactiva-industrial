@@ -2,9 +2,10 @@ let cursosAprobados = new Set();
 let cursosPlanificados = [];
 const CREDITOS_MAX = 22;
 
-fetch("data/malla.json")
+fetch("./data/malla.json")
   .then(res => res.json())
-  .then(data => renderMalla(data));
+  .then(malla => renderMalla(malla))
+  .catch(err => console.error("Error cargando malla:", err));
 
 function renderMalla(malla) {
   const contenedor = document.getElementById("malla");
@@ -22,41 +23,35 @@ function renderMalla(malla) {
     cursosDiv.className = "cursos";
 
     malla[sem].forEach(curso => {
-      const cursoDiv = document.createElement("div");
-      cursoDiv.classList.add("curso");
-      cursoDiv.dataset.id = curso.id;
-      cursoDiv.textContent = curso.nombre;
+      const div = document.createElement("div");
+      div.classList.add("curso");
+      div.dataset.id = curso.id;
+      div.textContent = curso.nombre;
 
-      if (curso.electivo) {
-        cursoDiv.classList.add("electivo");
-      }
+      if (curso.electivo) div.classList.add("electivo");
 
-      actualizarEstadoCurso(curso, cursoDiv);
+      actualizarEstadoCurso(curso, div);
 
       // Click → aprobar / desaprobar
-      cursoDiv.addEventListener("click", () => {
-        if (cursoDiv.classList.contains("bloqueado")) return;
+      div.addEventListener("click", () => {
+        if (div.classList.contains("bloqueado")) return;
 
-        if (cursosAprobados.has(curso.id)) {
-          cursosAprobados.delete(curso.id);
-        } else {
-          cursosAprobados.add(curso.id);
-        }
+        cursosAprobados.has(curso.id)
+          ? cursosAprobados.delete(curso.id)
+          : cursosAprobados.add(curso.id);
 
-        document.querySelectorAll(".curso").forEach(div => {
-          const id = div.dataset.id;
-          const cursoData = buscarCursoPorId(malla, id);
-          if (cursoData) actualizarEstadoCurso(cursoData, div);
+        document.querySelectorAll(".curso").forEach(c => {
+          const data = buscarCurso(malla, c.dataset.id);
+          if (data) actualizarEstadoCurso(data, c);
         });
       });
 
-      // Doble click → agregar al plan
-      cursoDiv.addEventListener("dblclick", () => {
-        if (!cursoDiv.classList.contains("disponible")) return;
-        agregarCurso(curso);
+      // Doble click → planificador
+      div.addEventListener("dblclick", () => {
+        if (div.classList.contains("disponible")) agregarCurso(curso);
       });
 
-      cursosDiv.appendChild(cursoDiv);
+      cursosDiv.appendChild(div);
     });
 
     semDiv.appendChild(cursosDiv);
@@ -82,7 +77,7 @@ function actualizarEstadoCurso(curso, div) {
   }
 }
 
-function buscarCursoPorId(malla, id) {
+function buscarCurso(malla, id) {
   for (const sem in malla) {
     const curso = malla[sem].find(c => c.id === id);
     if (curso) return curso;
@@ -90,7 +85,7 @@ function buscarCursoPorId(malla, id) {
   return null;
 }
 
-/* ====== PLANIFICADOR ====== */
+/* ===== PLANIFICADOR ===== */
 
 function agregarCurso(curso) {
   if (cursosPlanificados.some(c => c.id === curso.id)) return;
@@ -111,25 +106,23 @@ function actualizarPlanificador() {
   lista.innerHTML = "";
   let total = 0;
 
-  cursosPlanificados.forEach((c, index) => {
+  cursosPlanificados.forEach((c, i) => {
     const li = document.createElement("li");
     li.textContent = `${c.nombre} (${c.creditos} cr)`;
 
-    const btnEliminar = document.createElement("span");
-    btnEliminar.textContent = "✖";
-    btnEliminar.className = "btn-eliminar";
-    btnEliminar.addEventListener("click", () => {
-      cursosPlanificados.splice(index, 1);
+    const x = document.createElement("span");
+    x.textContent = "✖";
+    x.className = "btn-eliminar";
+    x.onclick = () => {
+      cursosPlanificados.splice(i, 1);
       actualizarPlanificador();
-    });
+    };
 
-    li.appendChild(btnEliminar);
+    li.appendChild(x);
     lista.appendChild(li);
     total += c.creditos;
   });
 
   totalSpan.textContent = total;
-  totalSpan.style.color = total > CREDITOS_MAX ? "red" : "green";
-}
   totalSpan.style.color = total > CREDITOS_MAX ? "red" : "green";
 }
